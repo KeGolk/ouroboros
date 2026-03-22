@@ -1,0 +1,79 @@
+# Supabase Project Configuration for Crowns of Ash
+# This file documents the required Supabase project settings.
+# Apply these settings in the Supabase Dashboard.
+
+[project]
+id = "crowns-of-ash"
+name = "Crowns of Ash"
+
+# ─── Authentication Configuration ──────────────────────────────────────────
+
+[auth]
+# Enable email/password authentication
+enabled = true
+# Allow new user signups
+enable_signup = true
+
+[auth.email]
+# Email/password auth provider
+enabled = true
+# Require email confirmation before allowing sign-in
+confirm_email = true
+# Double opt-in: send confirmation email on signup
+double_confirm_changes = true
+# Secure email change requires confirmation from both old and new email
+secure_email_change = true
+
+[auth.external.google]
+# Google OAuth provider
+# Configure at: https://console.cloud.google.com/apis/credentials
+# 1. Create OAuth 2.0 Client ID (Web application)
+# 2. Add authorized redirect URI: https://<project-ref>.supabase.co/auth/v1/callback
+# 3. Add authorized JavaScript origin: https://your-domain.vercel.app
+# 4. Copy Client ID and Client Secret into Supabase Dashboard > Auth > Providers > Google
+enabled = true
+client_id = "env(GOOGLE_CLIENT_ID)"
+secret = "env(GOOGLE_CLIENT_SECRET)"
+# Scopes: email, profile (default)
+# Skip nonce check for compatibility
+skip_nonce_check = false
+
+[auth.external.discord]
+# Discord OAuth provider
+# Configure at: https://discord.com/developers/applications
+# 1. Create New Application
+# 2. Go to OAuth2 > General
+# 3. Add redirect: https://<project-ref>.supabase.co/auth/v1/callback
+# 4. Copy Client ID and Client Secret into Supabase Dashboard > Auth > Providers > Discord
+enabled = true
+client_id = "env(DISCORD_CLIENT_ID)"
+secret = "env(DISCORD_CLIENT_SECRET)"
+# Scopes: identify, email (default)
+
+# ─── Auth URL Configuration ────────────────────────────────────────────────
+
+[auth.url]
+# The site URL for redirects after auth flows
+site_url = "env(NEXT_PUBLIC_SITE_URL)"
+# Additional redirect URLs (for preview deployments, localhost)
+additional_redirect_urls = [
+  "http://localhost:3000/auth/callback",
+  "http://localhost:3000/auth/reset-password",
+]
+
+# ─── Auth Session Configuration ────────────────────────────────────────────
+
+[auth.sessions]
+# JWT expiry in seconds (1 hour)
+jwt_expiry = 3600
+# Enable refresh token rotation
+enable_refresh_token_rotation = true
+# Refresh token reuse interval (seconds) — grace period for concurrent requests
+refresh_token_reuse_interval = 10
+
+# ─── Database ──────────────────────────────────────────────────────────────
+
+[db]
+# Use the default Postgres port
+port = 5432
+major_version = 15

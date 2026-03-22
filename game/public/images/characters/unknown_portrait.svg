@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="400" height="480">
+  <defs>
+    <radialGradient id="unknown-grad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2C2416"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="120" fill="url(#unknown-grad)"/>
+  <rect x="2" y="2" width="96" height="116" fill="none" stroke="#4A3C2A" stroke-width="0.5" opacity="0.4" rx="1"/>
+  <text x="50" y="50" text-anchor="middle" fill="#6B5B3E" font-family="serif" font-size="24" opacity="0.4">?</text>
+  <text x="50" y="100" text-anchor="middle" fill="#6B5B3E" font-family="serif" font-size="5" opacity="0.6">Unknown</text>
+</svg>

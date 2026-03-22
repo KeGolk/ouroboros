@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  :root {
+    --color-stat-str: #8B0000;
+    --color-stat-dex: #2E8B57;
+    --color-stat-int: #4169E1;
+    --color-stat-wis: #DAA520;
+    --color-stat-con: #8B4513;
+    --color-stat-cha: #9932CC;
+    --color-stat-inf: #C0A000;
+    --color-stat-cun: #2F4F4F;
+    --color-stat-dip: #B8860B;
+  }
+
+  body {
+    @apply bg-shadow-950 text-parchment-200 font-body;
+    background-image:
+      radial-gradient(ellipse at top, rgba(26, 21, 11, 0.8), transparent),
+      radial-gradient(ellipse at bottom, rgba(50, 55, 68, 0.4), transparent);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .parchment-panel {
+    @apply bg-shadow-900/80 border border-parchment-800/40 rounded-lg;
+    background-image: linear-gradient(
+      135deg,
+      rgba(26, 21, 11, 0.3) 0%,
+      rgba(50, 55, 68, 0.2) 50%,
+      rgba(26, 21, 11, 0.3) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(212, 154, 42, 0.05),
+      0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .stat-bar {
+    @apply h-2 rounded-full transition-all duration-300 ease-out;
+    background: linear-gradient(90deg, var(--stat-color) 0%, var(--stat-color-light) 100%);
+  }
+
+  .btn-medieval {
+    @apply px-4 py-2 font-display text-sm uppercase tracking-wider;
+    @apply border border-parchment-700/50 rounded;
+    @apply bg-shadow-800/80 text-parchment-300;
+    @apply hover:bg-shadow-700/80 hover:text-parchment-100 hover:border-gold-600/50;
+    @apply active:bg-shadow-900 active:scale-[0.98];
+    @apply disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-shadow-800/80;
+    @apply transition-all duration-200;
+  }
+
+  .btn-medieval-primary {
+    @apply btn-medieval;
+    @apply bg-gold-800/60 border-gold-600/50 text-gold-200;
+    @apply hover:bg-gold-700/60 hover:border-gold-500/60 hover:text-gold-100;
+  }
+
+  .btn-stat {
+    @apply w-9 h-9 flex items-center justify-center rounded;
+    @apply border border-parchment-800/40 bg-shadow-800/60;
+    @apply text-parchment-300 font-display text-lg font-bold;
+    @apply hover:bg-shadow-700/80 hover:border-gold-600/40 hover:text-gold-300;
+    @apply active:bg-shadow-900 active:scale-95;
+    @apply disabled:opacity-30 disabled:cursor-not-allowed;
+    @apply disabled:hover:bg-shadow-800/60 disabled:hover:border-parchment-800/40;
+    @apply disabled:hover:text-parchment-300;
+    @apply transition-all duration-150;
+    @apply touch-manipulation select-none;
+  }
+
+  .tooltip-content {
+    @apply absolute z-50 px-3 py-2 text-sm rounded-lg;
+    @apply bg-shadow-900 border border-parchment-800/40;
+    @apply text-parchment-200 shadow-xl;
+    @apply pointer-events-none;
+  }
+
+  .glow-positive {
+    text-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+  }
+
+  .glow-negative {
+    text-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+  }
+
+  .divider-ornate {
+    @apply relative h-px w-full;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212, 154, 42, 0.3) 20%,
+      rgba(212, 154, 42, 0.6) 50%,
+      rgba(212, 154, 42, 0.3) 80%,
+      transparent 100%
+    );
+  }
+
+  .text-shadow-dark {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .card-dark {
+    @apply bg-shadow-900/90 border border-shadow-700/50 rounded-lg;
+    @apply shadow-lg backdrop-blur-sm;
+  }
+
+  .input-dark {
+    @apply bg-shadow-900/80 border border-parchment-800/30 rounded;
+    @apply text-parchment-200 placeholder-parchment-600;
+    @apply focus:border-gold-600/50 focus:ring-1 focus:ring-gold-600/30 focus:outline-none;
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .scrollbar-dark {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(65, 64, 34, 0.4) transparent;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: rgba(65, 64, 34, 0.4);
+    border-radius: 3px;
+  }
+}

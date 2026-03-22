@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="400" height="480">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="grad-rowan_greenmantle-wounded" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2D4A1A"/>
+      <stop offset="100%" stop-color="#0A1A08"/>
+    </radialGradient>
+    <!-- Vignette -->
+    <radialGradient id="vignette-rowan_greenmantle-wounded" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.6)"/>
+    </radialGradient>
+    <!-- Parchment texture -->
+    <filter id="texture-rowan_greenmantle-wounded">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grey"/>
+      <feBlend in="SourceGraphic" in2="grey" mode="multiply"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="120" fill="url(#grad-rowan_greenmantle-wounded)"/>
+  <rect width="100" height="120" fill="url(#vignette-rowan_greenmantle-wounded)"/>
+
+  <!-- Decorative border -->
+  <rect x="2" y="2" width="96" height="116" fill="none" stroke="#4A6B2A" stroke-width="0.5" opacity="0.4" rx="1"/>
+  <rect x="4" y="4" width="92" height="112" fill="none" stroke="#D4A76A" stroke-width="0.3" opacity="0.3" rx="1"/>
+
+  <!-- Character silhouette -->
+  <g filter="url(#texture-rowan_greenmantle-wounded)" opacity="0.8">
+    <path d="M50,16 C55,16 58,20 58,25 C58,30 55,34 50,35 C45,34 42,30 42,25 C42,20 45,16 50,16 Z
+            M38,36 L30,42 L28,70 L38,70 L40,55 L44,62 L42,88 L48,88 L50,72 L52,88 L58,88 L56,62 L60,55 L62,70 L72,70 L70,42 L62,36 Z
+            M28,42 L20,38 L18,45 L28,48 M72,42 L80,38 L82,45 L72,48" fill="#4A6B2A" stroke="#D4A76A" stroke-width="0.3"/>
+  </g>
+
+  <!-- Pose-specific decorations -->
+  <line x1="44" y1="26" x2="48" y2="30" stroke="#8B2500" stroke-width="1.5" opacity="0.8"/>
+            <line x1="52" y1="24" x2="56" y2="28" stroke="#8B2500" stroke-width="1" opacity="0.6"/>
+
+  <!-- Faction accent line -->
+  <line x1="20" y1="92" x2="80" y2="92" stroke="#D4A76A" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Character name -->
+  <text x="50" y="100" text-anchor="middle" fill="#D4A76A" font-family="serif" font-size="5" font-weight="bold" opacity="0.9">Rowan Greenmantle</text>
+
+  <!-- Pose label -->
+  <text x="50" y="106" text-anchor="middle" fill="#4A6B2A" font-family="serif" font-size="3.5" font-style="italic" opacity="0.7">Fallen Leader</text>
+
+  <!-- Title -->
+  <text x="50" y="112" text-anchor="middle" fill="#D4A76A" font-family="serif" font-size="2.8" opacity="0.5">Voice of the Greenwood</text>
+</svg>
